@@ -1,4 +1,5 @@
-codryx
+
+# codryx
 codryx is a lightweight Python code quality and dependency health toolkit with progressive phases of features (1–6) focused on:
 
 Guarded function contracts with strict mode
@@ -337,4 +338,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
