@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PyGuardian Live CI Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    .chart { width: 600px; height: 300px; }
+  </style>
+</head>
+<body>
+  <h1>PyGuardian Live CI Dashboard</h1>
+  <div id="status">Loading...</div>
+  <canvas id="depsChart" class="chart"></canvas>
+  <canvas id="codeChart" class="chart"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    async function load() {
+      try {
+        const res = await fetch('metrics.json?_=' + Date.now());
+        const data = await res.json();
+        document.getElementById('status').innerText = 'Health Score: ' + data.cost.health_score + ' | Gate: ' + (data.gate.fail ? 'FAIL' : 'PASS');
+        const deps = data.deps || {};
+        const outdatedCount = Object.values(deps).filter(d => d.outdated === 'yes').length;
+        const upToDateCount = Object.values(deps).filter(d => d.outdated === 'no').length;
+        new Chart(document.getElementById('depsChart'), {
+          type: 'pie',
+          data: { labels: ['Outdated', 'Up-to-date'], datasets: [{ data: [outdatedCount, upToDateCount], backgroundColor: ['#e74c3c','#2ecc71'] }] }
+        });
+        const unusedSymbols = (data.code?.unused_symbols || []).length;
+        const deadFiles = (data.code?.dead_files || []).length;
+        new Chart(document.getElementById('codeChart'), {
+          type: 'bar',
+          data: { labels: ['Unused Symbols','Dead Files'], datasets: [{ data: [unusedSymbols, deadFiles], backgroundColor: ['#3498db','#9b59b6'] }] },
+          options: { scales: { y: { beginAtZero: true } } }
+        });
+      } catch (e) {
+        document.getElementById('status').innerText = 'Error loading metrics';
+      }
+    }
+    load();
+    setInterval(load, 10000);
+  </script>
+</body>
+</html>

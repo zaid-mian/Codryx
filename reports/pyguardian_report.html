@@ -1,0 +1,329 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PyGuardian Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background: #f5f5f5; }
+    .score { font-size: 20px; font-weight: bold; }
+    .chart { width: 600px; height: 300px; }
+  </style>
+</head>
+<body>
+  <h1>PyGuardian Health Report</h1>
+  <div class="score">Health Score: 50.0</div>
+  
+  <h2>Dependencies</h2>
+  <table>
+    <tr><th>Package</th><th>Declared</th><th>Latest</th><th>Outdated</th></tr>
+    
+      <tr><td>typer</td><td>0.9.0</td><td>0.24.1</td><td>yes</td></tr>
+    
+      <tr><td>rich</td><td>13.7.0</td><td>14.3.3</td><td>yes</td></tr>
+    
+      <tr><td>requests</td><td>2.31.0</td><td>2.32.5</td><td>yes</td></tr>
+    
+      <tr><td>jinja2</td><td>3.1.2</td><td>3.1.6</td><td>yes</td></tr>
+    
+      <tr><td>packaging</td><td>23.2</td><td>26.0</td><td>yes</td></tr>
+    
+      <tr><td>pyyaml</td><td>6.0.1</td><td>6.0.3</td><td>yes</td></tr>
+    
+  </table>
+  <h2>Code</h2>
+  <p>Files scanned: 53</p>
+  <h3>Unused Symbols</h3>
+  <ul>
+    
+      <li>TestCIDashboard</li>
+    
+      <li>TestCodeAnalyzer</li>
+    
+      <li>TestGatekeeper</li>
+    
+      <li>TestGuard</li>
+    
+      <li>TestIDEExt</li>
+    
+      <li>TestIDELSP</li>
+    
+      <li>TestIDEPlugin</li>
+    
+      <li>TestLicense</li>
+    
+      <li>TestNotifications</li>
+    
+      <li>TestNotificationsRich</li>
+    
+      <li>TestNotificationsRich2</li>
+    
+      <li>TestSecurityRemediation</li>
+    
+      <li>_resolve_attribute</li>
+    
+      <li>doctor</li>
+    
+      <li>help_cmd</li>
+    
+      <li>ide</li>
+    
+      <li>security</li>
+    
+      <li>stop</li>
+    
+      <li>test_attribute_condition</li>
+    
+      <li>test_bool_condition</li>
+    
+      <li>test_conflicts_detection</li>
+    
+      <li>test_guard_highlights_and_hints</li>
+    
+      <li>test_no_webhooks</li>
+    
+      <li>test_pipeline_github</li>
+    
+      <li>test_pipeline_gitlab</li>
+    
+      <li>test_protocols_build_diagnostics</li>
+    
+      <li>test_pycharm_export</li>
+    
+      <li>test_quickfix_unused_imports</li>
+    
+      <li>test_slack_blocks</li>
+    
+      <li>test_slack_rich</li>
+    
+      <li>test_teams_card</li>
+    
+      <li>test_threshold</li>
+    
+      <li>test_unused_imports_and_dead_files</li>
+    
+      <li>test_vscode_export</li>
+    
+      <li>test_write_metrics</li>
+    
+      <li>try_post_pr</li>
+    
+  </ul>
+  <h3>Unused Imports</h3>
+  <ul>
+    
+      <li>.\examples\ci_dashboard_example.py:start_server</li>
+    
+      <li>.\examples\ide_lsp_example.py:apply_quickfix</li>
+    
+      <li>.\pyguardian\ci_realtime.py:Optional</li>
+    
+      <li>.\pyguardian\guard.py:asyncio</li>
+    
+      <li>.\pyguardian\notifications.py:Optional</li>
+    
+      <li>.\pyguardian\notifications_rich.py:List</li>
+    
+      <li>.\pyguardian\security_remediation.py:Dict</li>
+    
+      <li>.\pyguardian\ide_ext\pycharm_lsp\server.py:Any,Dict</li>
+    
+      <li>.\pyguardian\ide_ext\vscode_lsp\server.py:Any,Dict</li>
+    
+  </ul>
+  <h3>Dead Files</h3>
+  <ul>
+    
+      <li>.\run_examples.py</li>
+    
+      <li>.\examples\ci_dashboard_example.py</li>
+    
+      <li>.\examples\ide_lsp_example.py</li>
+    
+      <li>.\examples\ide_preview.py</li>
+    
+      <li>.\examples\notifications_example.py</li>
+    
+      <li>.\examples\notifications_rich_example.py</li>
+    
+      <li>.\examples\security_pipeline_example.py</li>
+    
+      <li>.\examples\vscode_plugin_example.py</li>
+    
+      <li>.\tests\test_ci_dashboard.py</li>
+    
+      <li>.\tests\test_code_analyzer.py</li>
+    
+      <li>.\tests\test_gatekeeper.py</li>
+    
+      <li>.\tests\test_ide_ext.py</li>
+    
+      <li>.\tests\test_ide_lsp.py</li>
+    
+      <li>.\tests\test_ide_plugin.py</li>
+    
+      <li>.\tests\test_license.py</li>
+    
+      <li>.\tests\test_notifications.py</li>
+    
+      <li>.\tests\test_notifications_rich.py</li>
+    
+      <li>.\tests\test_notifications_rich2.py</li>
+    
+      <li>.\tests\test_security_remediation.py</li>
+    
+  </ul>
+  <h2>Vulnerabilities</h2>
+  <ul>
+    
+      <li>requests: 2</li>
+    
+      <li>jinja2: 5</li>
+    
+  </ul>
+  <h2>Charts</h2>
+  <canvas id="depsChart" class="chart"></canvas>
+  <canvas id="codeChart" class="chart"></canvas>
+  <h2>Licenses</h2>
+  <table>
+    <tr><th>Package</th><th>License</th></tr>
+    
+      <tr><td>typer</td><td>['Development Status :: 4 - Beta', 'Intended Audience :: Developers', 'Intended Audience :: Information Technology', 'Intended Audience :: System Administrators', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Topic :: Software Development', 'Topic :: Software Development :: Libraries', 'Topic :: Software Development :: Libraries :: Application Frameworks', 'Topic :: Software Development :: Libraries :: Python Modules', 'Typing :: Typed']</td></tr>
+    
+      <tr><td>click</td><td>['Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Typing :: Typed']</td></tr>
+    
+      <tr><td>colorama;</td><td>None</td></tr>
+    
+      <tr><td>shellingham</td><td>ISC License</td></tr>
+    
+      <tr><td>rich</td><td>MIT</td></tr>
+    
+      <tr><td>ipywidgets</td><td>BSD 3-Clause License</td></tr>
+    
+      <tr><td>markdown-it-py</td><td>['Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'License :: OSI Approved :: MIT License', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: Implementation :: CPython', 'Programming Language :: Python :: Implementation :: PyPy', 'Topic :: Software Development :: Libraries :: Python Modules', 'Topic :: Text Processing :: Markup']</td></tr>
+    
+      <tr><td>pygments</td><td>BSD-2-Clause</td></tr>
+    
+      <tr><td>annotated-doc</td><td>['Development Status :: 4 - Beta', 'Intended Audience :: Developers', 'Intended Audience :: Information Technology', 'Intended Audience :: System Administrators', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Topic :: Internet', 'Topic :: Software Development', 'Topic :: Software Development :: Libraries', 'Topic :: Software Development :: Libraries :: Application Frameworks', 'Topic :: Software Development :: Libraries :: Python Modules', 'Typing :: Typed']</td></tr>
+    
+      <tr><td>requests</td><td>Apache-2.0</td></tr>
+    
+      <tr><td>charset_normalizer</td><td>MIT</td></tr>
+    
+      <tr><td>idna</td><td>['Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'Intended Audience :: System Administrators', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: Implementation :: CPython', 'Programming Language :: Python :: Implementation :: PyPy', 'Topic :: Internet :: Name Service (DNS)', 'Topic :: Software Development :: Libraries :: Python Modules', 'Topic :: Utilities']</td></tr>
+    
+      <tr><td>ruff</td><td>['Development Status :: 5 - Production/Stable', 'Environment :: Console', 'Intended Audience :: Developers', 'License :: OSI Approved :: MIT License', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Programming Language :: Python :: 3.7', 'Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Rust', 'Topic :: Software Development :: Libraries :: Python Modules', 'Topic :: Software Development :: Quality Assurance']</td></tr>
+    
+      <tr><td>mypy</td><td>MIT</td></tr>
+    
+      <tr><td>pytest</td><td>['Development Status :: 6 - Mature', 'Intended Audience :: Developers', 'Operating System :: MacOS', 'Operating System :: Microsoft :: Windows', 'Operating System :: POSIX', 'Operating System :: Unix', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Topic :: Software Development :: Libraries', 'Topic :: Software Development :: Testing', 'Topic :: Utilities']</td></tr>
+    
+      <tr><td>flake8</td><td>MIT</td></tr>
+    
+      <tr><td>urllib3</td><td>['Environment :: Web Environment', 'Intended Audience :: Developers', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: Free Threading :: 2 - Beta', 'Programming Language :: Python :: Implementation :: CPython', 'Programming Language :: Python :: Implementation :: PyPy', 'Topic :: Internet :: WWW/HTTP', 'Topic :: Software Development :: Libraries']</td></tr>
+    
+      <tr><td>brotli</td><td>MIT</td></tr>
+    
+      <tr><td>brotlicffi</td><td>MIT</td></tr>
+    
+      <tr><td>h2</td><td>The MIT License (MIT)
+        
+        Copyright (c) 2015-2020 Cory Benfield and contributors
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        </td></tr>
+    
+      <tr><td>pysocks</td><td>BSD</td></tr>
+    
+      <tr><td>backports-zstd</td><td>['Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.9', 'Topic :: System :: Archiving :: Compression']</td></tr>
+    
+      <tr><td>certifi</td><td>MPL-2.0</td></tr>
+    
+      <tr><td>PySocks</td><td>BSD</td></tr>
+    
+      <tr><td>chardet</td><td>['Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'License :: OSI Approved :: MIT License', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Programming Language :: Python :: Implementation :: CPython', 'Programming Language :: Python :: Implementation :: PyPy', 'Topic :: Software Development :: Libraries :: Python Modules', 'Topic :: Text Processing :: Linguistic']</td></tr>
+    
+      <tr><td>jinja2</td><td>['Development Status :: 5 - Production/Stable', 'Environment :: Web Environment', 'Intended Audience :: Developers', 'License :: OSI Approved :: BSD License', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Topic :: Internet :: WWW/HTTP :: Dynamic Content', 'Topic :: Text Processing :: Markup :: HTML', 'Typing :: Typed']</td></tr>
+    
+      <tr><td>MarkupSafe</td><td>['Development Status :: 5 - Production/Stable', 'Environment :: Web Environment', 'Intended Audience :: Developers', 'Operating System :: OS Independent', 'Programming Language :: Python', 'Topic :: Internet :: WWW/HTTP :: Dynamic Content', 'Topic :: Text Processing :: Markup :: HTML', 'Typing :: Typed']</td></tr>
+    
+      <tr><td>Babel</td><td>BSD-3-Clause</td></tr>
+    
+      <tr><td>pytz</td><td>MIT</td></tr>
+    
+      <tr><td>tzdata;</td><td>None</td></tr>
+    
+      <tr><td>backports.zoneinfo;</td><td>None</td></tr>
+    
+      <tr><td>freezegun</td><td>Apache-2.0</td></tr>
+    
+      <tr><td>pytest-cov;</td><td>None</td></tr>
+    
+      <tr><td>pytz;</td><td>None</td></tr>
+    
+      <tr><td>setuptools;</td><td>None</td></tr>
+    
+      <tr><td>packaging</td><td>['Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers', 'Programming Language :: Python', 'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3 :: Only', 'Programming Language :: Python :: 3.10', 'Programming Language :: Python :: 3.11', 'Programming Language :: Python :: 3.12', 'Programming Language :: Python :: 3.13', 'Programming Language :: Python :: 3.14', 'Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: Implementation :: CPython', 'Programming Language :: Python :: Implementation :: PyPy', 'Typing :: Typed']</td></tr>
+    
+      <tr><td>pyyaml</td><td>MIT</td></tr>
+    
+  </table>
+  <h3>Conflicts</h3>
+  <ul>
+    
+  </ul>
+  <h2>Migration Plan</h2>
+  <ul>
+    
+      <li>Update typer to 0.24.1</li>
+    
+      <li>Update rich to 14.3.3</li>
+    
+      <li>Update requests to 2.32.5</li>
+    
+      <li>Update jinja2 to 3.1.6</li>
+    
+      <li>Update packaging to 26.0</li>
+    
+      <li>Update pyyaml to 6.0.3</li>
+    
+  </ul>
+  <p>Generated by PyGuardian doctor</p>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const depsData = {"jinja2": {"declared": "3.1.2", "latest": "3.1.6", "outdated": "yes"}, "packaging": {"declared": "23.2", "latest": "26.0", "outdated": "yes"}, "pyyaml": {"declared": "6.0.1", "latest": "6.0.3", "outdated": "yes"}, "requests": {"declared": "2.31.0", "latest": "2.32.5", "outdated": "yes"}, "rich": {"declared": "13.7.0", "latest": "14.3.3", "outdated": "yes"}, "typer": {"declared": "0.9.0", "latest": "0.24.1", "outdated": "yes"}};
+    const codeData = {"dead_files": [".\\run_examples.py", ".\\examples\\ci_dashboard_example.py", ".\\examples\\ide_lsp_example.py", ".\\examples\\ide_preview.py", ".\\examples\\notifications_example.py", ".\\examples\\notifications_rich_example.py", ".\\examples\\security_pipeline_example.py", ".\\examples\\vscode_plugin_example.py", ".\\tests\\test_ci_dashboard.py", ".\\tests\\test_code_analyzer.py", ".\\tests\\test_gatekeeper.py", ".\\tests\\test_ide_ext.py", ".\\tests\\test_ide_lsp.py", ".\\tests\\test_ide_plugin.py", ".\\tests\\test_license.py", ".\\tests\\test_notifications.py", ".\\tests\\test_notifications_rich.py", ".\\tests\\test_notifications_rich2.py", ".\\tests\\test_security_remediation.py"], "files_scanned": [".\\run_examples.py", ".\\examples\\ci_dashboard_example.py", ".\\examples\\ci_realtime_example.py", ".\\examples\\example_usage.py", ".\\examples\\ide_lsp_example.py", ".\\examples\\ide_preview.py", ".\\examples\\notifications_example.py", ".\\examples\\notifications_rich_example.py", ".\\examples\\security_pipeline_example.py", ".\\examples\\vscode_plugin_example.py", ".\\pyguardian\\audit.py", ".\\pyguardian\\ci_dashboard.py", ".\\pyguardian\\ci_realtime.py", ".\\pyguardian\\cli.py", ".\\pyguardian\\code_analyzer.py", ".\\pyguardian\\config.py", ".\\pyguardian\\cost_analyzer.py", ".\\pyguardian\\expr.py", ".\\pyguardian\\gatekeeper.py", ".\\pyguardian\\guard.py", ".\\pyguardian\\ide_plugin.py", ".\\pyguardian\\license.py", ".\\pyguardian\\migration.py", ".\\pyguardian\\notifications.py", ".\\pyguardian\\notifications_rich.py", ".\\pyguardian\\rule_loader.py", ".\\pyguardian\\scanner.py", ".\\pyguardian\\security.py", ".\\pyguardian\\security_remediation.py", ".\\pyguardian\\utils.py", ".\\pyguardian\\visuals.py", ".\\pyguardian\\__init__.py", ".\\pyguardian\\ide_ext\\lsp.py", ".\\pyguardian\\ide_ext\\pycharm.py", ".\\pyguardian\\ide_ext\\vscode.py", ".\\pyguardian\\ide_ext\\pycharm_lsp\\handlers.py", ".\\pyguardian\\ide_ext\\pycharm_lsp\\protocol.py", ".\\pyguardian\\ide_ext\\pycharm_lsp\\server.py", ".\\pyguardian\\ide_ext\\vscode_lsp\\handlers.py", ".\\pyguardian\\ide_ext\\vscode_lsp\\protocol.py", ".\\pyguardian\\ide_ext\\vscode_lsp\\server.py", ".\\tests\\test_ci_dashboard.py", ".\\tests\\test_code_analyzer.py", ".\\tests\\test_gatekeeper.py", ".\\tests\\test_guard.py", ".\\tests\\test_ide_ext.py", ".\\tests\\test_ide_lsp.py", ".\\tests\\test_ide_plugin.py", ".\\tests\\test_license.py", ".\\tests\\test_notifications.py", ".\\tests\\test_notifications_rich.py", ".\\tests\\test_notifications_rich2.py", ".\\tests\\test_security_remediation.py"], "unused_imports": [".\\examples\\ci_dashboard_example.py:start_server", ".\\examples\\ide_lsp_example.py:apply_quickfix", ".\\pyguardian\\ci_realtime.py:Optional", ".\\pyguardian\\guard.py:asyncio", ".\\pyguardian\\notifications.py:Optional", ".\\pyguardian\\notifications_rich.py:List", ".\\pyguardian\\security_remediation.py:Dict", ".\\pyguardian\\ide_ext\\pycharm_lsp\\server.py:Any,Dict", ".\\pyguardian\\ide_ext\\vscode_lsp\\server.py:Any,Dict"], "unused_symbols": ["TestCIDashboard", "TestCodeAnalyzer", "TestGatekeeper", "TestGuard", "TestIDEExt", "TestIDELSP", "TestIDEPlugin", "TestLicense", "TestNotifications", "TestNotificationsRich", "TestNotificationsRich2", "TestSecurityRemediation", "_resolve_attribute", "doctor", "help_cmd", "ide", "security", "stop", "test_attribute_condition", "test_bool_condition", "test_conflicts_detection", "test_guard_highlights_and_hints", "test_no_webhooks", "test_pipeline_github", "test_pipeline_gitlab", "test_protocols_build_diagnostics", "test_pycharm_export", "test_quickfix_unused_imports", "test_slack_blocks", "test_slack_rich", "test_teams_card", "test_threshold", "test_unused_imports_and_dead_files", "test_vscode_export", "test_write_metrics", "try_post_pr"]};
+    const outdatedCount = Object.values(depsData).filter(d => d.outdated === 'yes').length;
+    const upToDateCount = Object.values(depsData).filter(d => d.outdated === 'no').length;
+    new Chart(document.getElementById('depsChart'), {
+      type: 'pie',
+      data: { labels: ['Outdated', 'Up-to-date'], datasets: [{ data: [outdatedCount, upToDateCount], backgroundColor: ['#e74c3c','#2ecc71'] }] }
+    });
+    const unusedSymbols = codeData.unused_symbols.length;
+    const deadFiles = codeData.dead_files.length;
+    new Chart(document.getElementById('codeChart'), {
+      type: 'bar',
+      data: { labels: ['Unused Symbols','Dead Files'], datasets: [{ data: [unusedSymbols, deadFiles], backgroundColor: ['#3498db','#9b59b6'] }] },
+      options: { scales: { y: { beginAtZero: true } } }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "rules": [
+    "user.is_active",
+    {"condition": "arg0 > 0"}
+  ]
+}

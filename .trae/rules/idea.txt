@@ -1,0 +1,255 @@
+1. Product Overview
+
+Name: PyGuardian
+Type: Python Developer Toolkit (Library + CLI Tool)
+Vision:
+A full-stack Python code safety & health platform that ensures:
+
+Runtime business logic safety (guards for pre/post conditions)
+
+Dependency and repo health (technical debt, unused code, security, licenses)
+
+Distribution:
+
+Package: PyPI
+
+Code Repo: GitHub
+
+License: MIT
+
+Core Promise: Developers ship safer code faster, with reduced tech debt, and have observable, auditable, actionable feedback.
+
+2. Problem Statement
+
+Python projects today suffer from:
+
+Runtime Logic Bugs: Hardcoded business rules fail silently in production.
+
+Dependency & Code Debt: Unused packages, abandoned libraries, and dead code accumulate.
+
+Security & Compliance Risks: Vulnerable packages, transitive license violations, and insecure code go unnoticed.
+
+Observability Gaps: Failures and technical debt often lack clear reporting and actionable guidance.
+
+3. Target Users
+
+Backend engineers (FastAPI, Django, Flask)
+
+Python architects & tech leads
+
+DevOps and CI/CD teams
+
+CTOs and CTO advisors (for dependency cost/health insights)
+
+4. Product Goals
+
+Business Logic Safety: Enforce runtime pre/post conditions dynamically.
+
+Dependency Health: Detect unused, outdated, and abandoned libraries.
+
+Dead Code Detection: Identify unused files, functions, and imports.
+
+Security & License Checks: Scan dependencies and transitive libraries for risk.
+
+Developer-Friendly Observability: Logs, dashboards, reports, and CI/CD gates.
+
+Cost & Actionability: Show impact of bad code/dependencies and automate remediation.
+
+5. Core Features
+5.1 Runtime Business Logic Guards
+
+Python Decorator: @guard(condition="user.is_active")
+
+Dynamic Rule Loading: Load rules from JSON, YAML, or DB at runtime.
+
+@guard(rules="config/business_rules.json")
+def process_order(order):
+    ...
+
+Async & Thread-Safe: Works with async def for FastAPI / asyncio apps.
+
+Audit Logging & Tracing: Failures auto-log to structured JSON with context (user ID, request ID).
+
+Zero-Overhead Production Mode: Checks disabled in production via PY_GUARDIAN_MODE=production.
+
+Killer Feature: Visual Rule Graph → static HTML visualizing rule dependencies for onboarding and documentation.
+
+5.2 Dependency & Repo Health Scanner
+
+CLI Commands:
+
+pyguardian deps scan      # Dependency analysis
+pyguardian code scan      # Dead code detection
+pyguardian security scan  # Vulnerable packages & licenses
+pyguardian doctor         # Full health report
+
+Features:
+
+Unused & abandoned packages
+
+Outdated dependencies
+
+Dead code detection (files/functions/imports)
+
+Transitive license risk detection
+
+Cost estimation (impact on build time, cloud costs)
+
+Automated migration PRs for GitHub (removes unused deps and updates imports)
+
+Health Score Dashboard (0–100)
+
+CI/CD Gatekeeper → fail build if score < threshold
+
+Killer Feature: Automated Migration PR → eliminates manual dependency cleanup, huge productivity win.
+
+5.3 Combined CLI + Python API
+
+CLI:
+
+pyguardian deps scan
+pyguardian code scan
+pyguardian security scan
+pyguardian doctor
+pyguardian help
+
+Python API:
+
+from pyguardian import guard, scan_dependencies, scan_code, enable_strict_mode
+
+@guard("user.is_active")
+def create_order(user):
+    ...
+
+enable_strict_mode()   # All checks in dev
+scan_dependencies()    # Programmatic usage
+scan_code()
+6. Architecture
+6.1 Modules
+
+Guard Engine → runtime pre/post condition enforcement
+
+Rule Loader → dynamic rules from JSON/YAML/DB
+
+Scanner Engine → dependency, dead code, security, license analysis
+
+Cost Analyzer → compute impact of unused dependencies
+
+Migration Engine → auto PR generator for GitHub/GitLab
+
+CLI Interface → commands & reporting
+
+Dashboard & Visuals → Health score & visual rule graph
+
+6.2 Folder Structure
+pyguardian/
+├─ pyguardian/
+│  ├─ __init__.py
+│  ├─ guard.py
+│  ├─ rule_loader.py
+│  ├─ scanner.py
+│  ├─ code_analyzer.py
+│  ├─ security.py
+│  ├─ cost_analyzer.py
+│  ├─ migration.py
+│  ├─ cli.py
+│  └─ utils.py
+├─ tests/
+├─ docs/
+├─ examples/
+├─ pyproject.toml
+├─ README.md
+└─ LICENSE
+6.3 Tech Stack / Dependencies
+
+Python 3.10+
+
+AST (builtin) → dead code analysis
+
+Typer → CLI
+
+Rich → CLI output formatting
+
+Requests → dependency metadata fetch
+
+GitHub API → automated PRs
+
+Jinja2 → HTML reports for rule graph
+
+7. MVP
+
+Runtime Guards (@guard)
+
+Dependency Scanner (deps scan)
+
+Dead Code Detection (code scan)
+
+CLI & Python API for all core features
+
+Health Score Dashboard
+
+Advanced features (v1 ready due to IDE speed):
+
+Dynamic Rule Loading
+
+Audit Logging
+
+Async support
+
+Automated Migration PRs
+
+8. Non-Functional Requirements
+
+Lightweight & fast
+
+Zero-config install (pip install pyguardian)
+
+Clear CLI & error messages
+
+Fully typed (mypy/pyright)
+
+Unit-tested ≥80% coverage
+
+Open-source MIT licensed
+
+9. Success Metrics
+
+GitHub stars: 5,000+
+
+PyPI downloads: 50,000+ in 1 year
+
+Enterprise adoption (migration PR usage)
+
+CI/CD integration adoption
+
+10. Roadmap
+Phase	Features
+Phase 1	Core Engine, Runtime Guards, Dependency Scanner, Dead Code Detection, CLI
+Phase 2	Dynamic Rule Loading, Audit Logging, Async Support, Health Score Dashboard
+Phase 3	Automated Migration PRs, Transitive License Check, CI/CD Gatekeeper
+Phase 4	Visual Rule Graph, IDE Plugins, Auto-fixes, Dependency Graph Visualization
+11. Launch Plan
+
+Publish MVP to PyPI
+
+Host repository on GitHub
+
+Full README + Quick Start + Examples
+
+Blog & demo (show automated PRs and rule graph)
+
+Share in Python communities, Hacker News, and Discord
+
+12. Example Usage
+from pyguardian import guard, enable_strict_mode
+
+enable_strict_mode()
+
+@guard(rules="config/business_rules.json")
+async def process_order(order, user):
+    # Business logic safely guarded
+    ...
+# CLI
+pyguardian deps scan
+pyguardian code scan
+pyguardian doctor
