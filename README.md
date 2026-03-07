@@ -1,321 +1,161 @@
-
-# codryx
-codryx is a lightweight Python code quality and dependency health toolkit with progressive phases of features (1–6) focused on:
-
-Guarded function contracts with strict mode
-Dead code, unused imports, and unused symbols detection
-Dependency and security scanning
-Migration PR automation with optional auto-merge
-License graph and gatekeeper health scoring
-Interactive dashboards, IDE helpers, rich notifications
-Optional real-time CI dashboards and websocket broadcasting
-Installation
-Recommended: create a virtual environment and install optional dependencies.
-Optional dependencies enhance CLI UX and features but are not required.
-# Create venv
-python -m venv .venv
-
-# Activate on Windows
-.\\.venv\\Scripts\\activate
-
-# Install optional dependencies
-pip install typer rich requests pyyaml packaging jinja2 websockets
-Quick Start
-
-CLI help: python -m codryx.cli help
-
-Run doctor: python -m codryx.cli doctor
-
-Example scripts: python run_examples.py
-
-CLI Usage
-
-Help: python -m codryx.cli help
-
-Dependencies: codryx deps scan
-
-Code: codryx code scan --root .
-
-Security: codryx security scan
-
-Doctor: codryx doctor
-
-Strict mode: codryx strict
-
-Fallback: without Typer/Rich, use python -m codryx.cli doctor
-
-Python API
-
-Guards: from codryx import guard, enable_strict_mode
-
-Code scan: from codryx import scan_code
-
-Dependency scan: from codryx import scan_dependencies
-
-Example: examples/example_usage.py
-
-Environment Variables
-
-PY_GUARDIAN_MODE: default "development"
-
-PY_GUARDIAN_STRICT: "1"/"true"/"yes" to enable strict mode
-
-PY_GUARDIAN_REPORT_DIR: output directory (default "reports")
-
-PY_GUARDIAN_AUDIT_ASYNC: "1"/"true"/"yes" to enable async audit
-
-PY_GUARDIAN_AUDIT_QUEUE: queue size (default 1024)
-
-PY_GUARDIAN_HEALTH_THRESHOLD: numeric threshold to fail gate
-
-PY_GUARDIAN_LICENSE_BLOCKLIST: comma-separated license names to flag
-
-PY_GUARDIAN_SLACK_WEBHOOK: Slack incoming webhook URL
-
-PY_GUARDIAN_TEAMS_WEBHOOK: Teams incoming webhook URL
-
-GITHUB_TOKEN / GITLAB_TOKEN: tokens to create PRs
-
-PY_GUARDIAN_APPROVED: "1"/"true"/"yes" allows auto-merge for supported providers
-
-Phase 1–6 Highlights
-
-Phase 1–2: Guards, strict mode, dead code detection, dependency scanning
-
-Phase 3: License graph/conflicts, gatekeeper, dashboards
-
-Phase 4: Notifications, interactive charts, IDE hints
-
-Phase 5: Rich notifications, realtime CI dashboard, security auto-remediation
-
-Phase 6: Optional IDE extension modules, websocket broadcaster, pipeline snippets
-
-Examples
-
-examples/example_usage.py → rules, code scan, PR payload
-
-IDE helpers:
-
-examples/ide_preview.py → guard highlights and health hints
-
-examples/vscode_plugin_example.py → VSCode diagnostics and quickfix
-
-Dashboards:
-
-examples/ci_dashboard_example.py → writes metrics.json
-
-Open codryx/templates/ci_dashboard.html from the reports directory
-
-Notifications:
-
-examples/notifications_example.py → simple webhook use
-
-examples/notifications_rich_example.py → Slack/Teams rich payloads
-
-Security:
-
-examples/security_pipeline_example.py → CI pipeline snippets
-
-Running Examples Easily
-
-Use the helper script: python run_examples.py
-
-This sets PYTHONPATH to the project root and runs all example scripts
-
-Verifying the Build
-
-Activate venv: .\\.venv\\Scripts\\activate
-
-Run CLI commands: help, deps scan, code scan, security scan, doctor, strict
-
-Run examples: python run_examples.py
-
-Run tests: python -m unittest discover -s tests -p "test*.py" -q
-
-Optional Modules
-
-IDE extensions (VSCode/PyCharm): codryx/ide_ext/
-
-Real-time CI broadcaster: codryx/ci_realtime.py (requires websockets)
-
-Rich notifications: codryx/notifications_rich.py
-
-Security remediation: codryx/security_remediation.py
-
-License
-MIT License
-
-Copyright (c) 2026 Your Name
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-[... full MIT license text here ...]
-
----
-
-✅ You can **copy this entire block** and save it as `README.md` in your project root.  
-
-If you want, I can also make a **ready-to-run one-liner command in PowerShell or Linux terminal** that creates this file automatically for you.  
-
-Do you want me to do that?
-provide me all in single markdown
-
-Sure! Here’s your all-in-one README.md in a single markdown block, ready to copy and save as README.md in your project root. It includes the license, instructions, examples, and phase highlights.
-
 # codryx
 
-codryx is a lightweight Python code quality and dependency health toolkit with progressive phases of features (1–6) focused on:
+<p align="center">
+  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status">
+  <img src="https://img.shields.io/badge/python-3.7+-blue" alt="Python Version">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+</p>
 
-- Guarded function contracts with strict mode
-- Dead code, unused imports, and unused symbols detection
-- Dependency and security scanning
-- Migration PR automation with optional auto-merge
-- License graph and gatekeeper health scoring
-- Interactive dashboards, IDE helpers, rich notifications
-- Optional real-time CI dashboards and websocket broadcasting
+codryx is a lightweight Python code quality and dependency health toolkit that helps you maintain clean, secure, and healthy codebases through progressive feature phases (1–6).
 
-## Installation
+## ✨ Features
 
-- Recommended: create a virtual environment and install optional dependencies.
-- Optional dependencies enhance CLI UX and features but are not required.
+- **🔒 Guarded Function Contracts** – Strict mode enforcement for function contracts
+- **🔍 Dead Code Detection** – Unused imports, variables, and symbols
+- **📦 Dependency Scanning** – Security vulnerabilities and license compliance
+- **🤖 Migration PR Automation** – Auto-merge support for GitHub/GitLab
+- **📊 License Management** – License graph visualization and gatekeeper scoring
+- **📈 Interactive Dashboards** – Real-time CI dashboards with WebSocket broadcasting
+- **🔔 Rich Notifications** – Slack, Teams, and webhook integrations
+- **🛠️ IDE Integration** – VSCode/PyCharm helpers and quickfixes
+
+## 🚀 Installation
+
+### Prerequisites
+- Python 3.7 or higher
+
+### Setup
 
 ```bash
-# Create venv
+# Create virtual environment
 python -m venv .venv
 
 # Activate on Windows
 .\\.venv\\Scripts\\activate
 
-# Install optional dependencies
+# Activate on macOS/Linux
+source .venv/bin/activate
+
+# Install optional dependencies for enhanced features
 pip install typer rich requests pyyaml packaging jinja2 websockets
-Quick Start
 
-CLI help: python -m codryx.cli help
+🎯 Quick Start
+# View CLI help
+python -m codryx.cli help
 
-Run doctor: python -m codryx.cli doctor
+# Run health check
+python -m codryx.cli doctor
 
-Example scripts: python run_examples.py
+# Run examples
+python run_examples.py
 
-CLI Usage
+## 📖 CLI Usage
 
-Help: python -m codryx.cli help
+| Command | Description |
+|---------|-------------|
+| `python -m codryx.cli help` | Display help information |
+| `codryx deps scan` | Scan dependencies |
+| `codryx code scan --root .` | Scan codebase for issues |
+| `codryx security scan` | Run security vulnerability scan |
+| `codryx doctor` | Run comprehensive health check |
+| `codryx strict` | Enable strict mode enforcement |
 
-Dependencies: codryx deps scan
+> **Note:** Without Typer/Rich installed, use `python -m codryx.cli doctor` as fallback.
 
-Code: codryx code scan --root .
+🐍 Python API
+from codryx import guard, enable_strict_mode, scan_code, scan_dependencies
 
-Security: codryx security scan
+# Enable strict mode for function contracts
+enable_strict_mode()
 
-Doctor: codryx doctor
+@guard
+def critical_function(data):
+    """This function is guarded by strict contracts"""
+    return process_data(data)
 
-Strict mode: codryx strict
+# Scan codebase for issues
+issues = scan_code("./src")
 
-Fallback: without Typer/Rich, use python -m codryx.cli doctor
+# Scan dependencies
+vulnerabilities = scan_dependencies()
 
-Python API
+## ⚙️ Environment Variables
 
-Guards: from codryx import guard, enable_strict_mode
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PY_GUARDIAN_MODE` | Environment mode | `"development"` |
+| `PY_GUARDIAN_STRICT` | Enable strict mode | `"false"` |
+| `PY_GUARDIAN_REPORT_DIR` | Output directory | `"reports"` |
+| `PY_GUARDIAN_AUDIT_ASYNC` | Enable async audit | `"false"` |
+| `PY_GUARDIAN_AUDIT_QUEUE` | Queue size | `"1024"` |
+| `PY_GUARDIAN_HEALTH_THRESHOLD` | Health gate threshold | `"70"` |
+| `PY_GUARDIAN_LICENSE_BLOCKLIST` | Blocked licenses | `""` |
+| `PY_GUARDIAN_SLACK_WEBHOOK` | Slack webhook URL | `""` |
+| `PY_GUARDIAN_TEAMS_WEBHOOK` | Teams webhook URL | `""` |
+| `GITHUB_TOKEN` / `GITLAB_TOKEN` | VCS tokens | `""` |
+| `PY_GUARDIAN_APPROVED` | Auto-merge approval | `"false"` |
 
-Code scan: from codryx import scan_code
+## 📊 Feature Roadmap
 
-Dependency scan: from codryx import scan_dependencies
+| Phase | Features |
+|-------|----------|
+| 1–2 | Guard contracts, strict mode, dead code detection, dependency scanning |
+| 3 | License graph/conflicts, gatekeeper, dashboards |
+| 4 | Notifications, interactive charts, IDE hints |
+| 5 | Rich notifications, real-time CI dashboard, security auto-remediation |
+| 6 | IDE extension modules, WebSocket broadcaster, pipeline snippets |
 
-Example: examples/example_usage.py
+### IDE Integration
+- `examples/ide_preview.py` – Guard highlights and health hints
+- `examples/vscode_plugin_example.py` – VSCode diagnostics and quickfix
 
-Environment Variables
+### Dashboards
+```bash
+# Generate metrics dashboard
+python examples/ci_dashboard_example.py
+# Open reports/ci_dashboard.html
 
-PY_GUARDIAN_MODE: default "development"
+### Notifications
+- `examples/notifications_example.py` – Simple webhook integration
+- `examples/notifications_rich_example.py` – Slack/Teams rich payloads
 
-PY_GUARDIAN_STRICT: "1"/"true"/"yes" to enable strict mode
+### Security
+- `examples/security_pipeline_example.py` – CI pipeline security snippets
 
-PY_GUARDIAN_REPORT_DIR: output directory (default "reports")
+✅ Verifying Installation
+# 1. Activate virtual environment
+.\.venv\Scripts\activate
 
-PY_GUARDIAN_AUDIT_ASYNC: "1"/"true"/"yes" to enable async audit
+# 2. Test CLI commands
+python -m codryx.cli help
+python -m codryx.cli doctor
 
-PY_GUARDIAN_AUDIT_QUEUE: queue size (default 1024)
+# 3. Run examples
+python run_examples.py
 
-PY_GUARDIAN_HEALTH_THRESHOLD: numeric threshold to fail gate
+# 4. Run tests
+python -m unittest discover -s tests -p "test*.py" -q
 
-PY_GUARDIAN_LICENSE_BLOCKLIST: comma-separated license names to flag
+## 🔧 Optional Modules
 
-PY_GUARDIAN_SLACK_WEBHOOK: Slack incoming webhook URL
+| Module | Path | Requirements |
+|--------|------|--------------|
+| IDE Extensions | `codryx/ide_ext/` | VSCode/PyCharm |
+| Real-time CI | `codryx/ci_realtime.py` | websockets |
+| Rich Notifications | `codryx/notifications_rich.py` | rich, requests |
+| Security Remediation | `codryx/security_remediation.py` | requests |
 
-PY_GUARDIAN_TEAMS_WEBHOOK: Teams incoming webhook URL
+📁 Project Structure
+codryx/
+├── codryx/           # Main package
+├── examples/         # Usage examples
+├── tests/           # Unit tests
+├── templates/       # Dashboard templates
+└── reports/         # Generated reports
 
-GITHUB_TOKEN / GITLAB_TOKEN: tokens to create PRs
+🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-PY_GUARDIAN_APPROVED: "1"/"true"/"yes" allows auto-merge for supported providers
-
-Phase 1–6 Highlights
-
-Phase 1–2: Guards, strict mode, dead code detection, dependency scanning
-
-Phase 3: License graph/conflicts, gatekeeper, dashboards
-
-Phase 4: Notifications, interactive charts, IDE hints
-
-Phase 5: Rich notifications, realtime CI dashboard, security auto-remediation
-
-Phase 6: Optional IDE extension modules, websocket broadcaster, pipeline snippets
-
-Examples
-
-examples/example_usage.py → rules, code scan, PR payload
-
-IDE helpers:
-
-examples/ide_preview.py → guard highlights and health hints
-
-examples/vscode_plugin_example.py → VSCode diagnostics and quickfix
-
-Dashboards:
-
-examples/ci_dashboard_example.py → writes metrics.json
-
-Open codryx/templates/ci_dashboard.html from the reports directory
-
-Notifications:
-
-examples/notifications_example.py → simple webhook use
-
-examples/notifications_rich_example.py → Slack/Teams rich payloads
-
-Security:
-
-examples/security_pipeline_example.py → CI pipeline snippets
-
-Running Examples Easily
-
-Use the helper script: python run_examples.py
-
-This sets PYTHONPATH to the project root and runs all example scripts
-
-Verifying the Build
-
-Activate venv: .\\.venv\\Scripts\\activate
-
-Run CLI commands: help, deps scan, code scan, security scan, doctor, strict
-
-Run examples: python run_examples.py
-
-Run tests: python -m unittest discover -s tests -p "test*.py" -q
-
-Optional Modules
-
-IDE extensions (VSCode/PyCharm): codryx/ide_ext/
-
-Real-time CI broadcaster: codryx/ci_realtime.py (requires websockets)
-
-Rich notifications: codryx/notifications_rich.py
-
-Security remediation: codryx/security_remediation.py
-
-License
 MIT License
 
 Copyright (c) 2026 Muhammad Zaid Tahir
@@ -337,4 +177,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
