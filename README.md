@@ -1,4 +1,3 @@
-```markdown
 # codryx
 
 <p align="center">
@@ -7,7 +6,7 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
 
-codryx is a lightweight Python code quality and dependency health toolkit that helps you maintain clean, secure, and healthy codebases through progressive feature phases (1–6).
+codryx is a lightweight Python code quality and dependency health toolkit that helps you maintain clean, secure, and healthy codebases through progressive feature phases 
 
 ## ✨ Features
 
@@ -32,14 +31,13 @@ codryx is a lightweight Python code quality and dependency health toolkit that h
 python -m venv .venv
 
 # Activate on Windows
-.\.venv\Scripts\activate
+.\\.venv\\Scripts\\activate
 
 # Activate on macOS/Linux
 source .venv/bin/activate
 
 # Install optional dependencies for enhanced features
 pip install typer rich requests pyyaml packaging jinja2 websockets
-```
 
 ## 🎯 Quick Start
 
@@ -174,8 +172,6 @@ codryx/
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
-
 MIT License
 
 Copyright (c) 2026 Muhammad Zaid Tahir
@@ -201,5 +197,5 @@ SOFTWARE.
 <p align="center">
   Built with ❤️ and ✨ magic by M. Zaid<br>
   Making Python development magical, one utility at a time<br>
-  ⭐ Star us on GitHub — it motivates us to keep improving!
+  ⭐ Star us on GitHub — it motivates
 </p>
