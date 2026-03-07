@@ -1,3 +1,4 @@
+```markdown
 # codryx
 
 <p align="center">
@@ -31,15 +32,18 @@ codryx is a lightweight Python code quality and dependency health toolkit that h
 python -m venv .venv
 
 # Activate on Windows
-.\\.venv\\Scripts\\activate
+.\.venv\Scripts\activate
 
 # Activate on macOS/Linux
 source .venv/bin/activate
 
 # Install optional dependencies for enhanced features
 pip install typer rich requests pyyaml packaging jinja2 websockets
+```
 
-🎯 Quick Start
+## 🎯 Quick Start
+
+```bash
 # View CLI help
 python -m codryx.cli help
 
@@ -48,11 +52,12 @@ python -m codryx.cli doctor
 
 # Run examples
 python run_examples.py
+```
 
 ## 📖 CLI Usage
 
 | Command | Description |
-|---------|-------------|
+|:--------|:------------|
 | `python -m codryx.cli help` | Display help information |
 | `codryx deps scan` | Scan dependencies |
 | `codryx code scan --root .` | Scan codebase for issues |
@@ -62,7 +67,9 @@ python run_examples.py
 
 > **Note:** Without Typer/Rich installed, use `python -m codryx.cli doctor` as fallback.
 
-🐍 Python API
+## 🐍 Python API
+
+```python
 from codryx import guard, enable_strict_mode, scan_code, scan_dependencies
 
 # Enable strict mode for function contracts
@@ -78,11 +85,12 @@ issues = scan_code("./src")
 
 # Scan dependencies
 vulnerabilities = scan_dependencies()
+```
 
 ## ⚙️ Environment Variables
 
 | Variable | Description | Default |
-|----------|-------------|---------|
+|:---------|:------------|:--------|
 | `PY_GUARDIAN_MODE` | Environment mode | `"development"` |
 | `PY_GUARDIAN_STRICT` | Enable strict mode | `"false"` |
 | `PY_GUARDIAN_REPORT_DIR` | Output directory | `"reports"` |
@@ -98,12 +106,14 @@ vulnerabilities = scan_dependencies()
 ## 📊 Feature Roadmap
 
 | Phase | Features |
-|-------|----------|
-| 1–2 | Guard contracts, strict mode, dead code detection, dependency scanning |
-| 3 | License graph/conflicts, gatekeeper, dashboards |
-| 4 | Notifications, interactive charts, IDE hints |
-| 5 | Rich notifications, real-time CI dashboard, security auto-remediation |
-| 6 | IDE extension modules, WebSocket broadcaster, pipeline snippets |
+|:------|:---------|
+| **1–2** | Guard contracts, strict mode, dead code detection, dependency scanning |
+| **3** | License graph/conflicts, gatekeeper, dashboards |
+| **4** | Notifications, interactive charts, IDE hints |
+| **5** | Rich notifications, real-time CI dashboard, security auto-remediation |
+| **6** | IDE extension modules, WebSocket broadcaster, pipeline snippets |
+
+## 💡 Examples
 
 ### IDE Integration
 - `examples/ide_preview.py` – Guard highlights and health hints
@@ -114,6 +124,7 @@ vulnerabilities = scan_dependencies()
 # Generate metrics dashboard
 python examples/ci_dashboard_example.py
 # Open reports/ci_dashboard.html
+```
 
 ### Notifications
 - `examples/notifications_example.py` – Simple webhook integration
@@ -122,7 +133,9 @@ python examples/ci_dashboard_example.py
 ### Security
 - `examples/security_pipeline_example.py` – CI pipeline security snippets
 
-✅ Verifying Installation
+## ✅ Verifying Installation
+
+```bash
 # 1. Activate virtual environment
 .\.venv\Scripts\activate
 
@@ -135,26 +148,33 @@ python run_examples.py
 
 # 4. Run tests
 python -m unittest discover -s tests -p "test*.py" -q
+```
 
 ## 🔧 Optional Modules
 
 | Module | Path | Requirements |
-|--------|------|--------------|
-| IDE Extensions | `codryx/ide_ext/` | VSCode/PyCharm |
-| Real-time CI | `codryx/ci_realtime.py` | websockets |
-| Rich Notifications | `codryx/notifications_rich.py` | rich, requests |
-| Security Remediation | `codryx/security_remediation.py` | requests |
+|:-------|:-----|:-------------|
+| **IDE Extensions** | `codryx/ide_ext/` | VSCode, PyCharm |
+| **Real-time CI** | `codryx/ci_realtime.py` | `websockets` |
+| **Rich Notifications** | `codryx/notifications_rich.py` | `rich`, `requests` |
+| **Security Remediation** | `codryx/security_remediation.py` | `requests` |
 
-📁 Project Structure
+## 📁 Project Structure
+
+```
 codryx/
 ├── codryx/           # Main package
 ├── examples/         # Usage examples
 ├── tests/           # Unit tests
 ├── templates/       # Dashboard templates
 └── reports/         # Generated reports
+```
 
-🤝 Contributing
+## 🤝 Contributing
+
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
 
 MIT License
 
@@ -177,3 +197,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+<p align="center">
+  Built with ❤️ and ✨ magic by M. Zaid<br>
+  Making Python development magical, one utility at a time<br>
+  ⭐ Star us on GitHub — it motivates us to keep improving!
+</p>
