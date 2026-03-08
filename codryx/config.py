@@ -8,7 +8,7 @@ class Config:
     mode: str = "development"
     strict: bool = False
     report_dir: str = "reports"
-    dashboard_filename: str = "pyguardian_report.html"
+    dashboard_filename: str = "codryx_report.html"
     rule_graph_filename: str = "rule_graph.html"
     audit_async: bool = True
     audit_queue_size: int = 1024

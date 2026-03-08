@@ -1,6 +1,7 @@
-# Virtual environment
+# Virtual environments
 .venv/
 env/
+venv/
 
 # Python cache
 __pycache__/
@@ -13,9 +14,16 @@ build/
 dist/
 *.egg-info/
 
-# IDE
+# IDE / editors
 .vscode/
 .idea/
+
+# Tool folders
+.trae/
+.tree/
+
+# Generated outputs
+reports/
 
 # OS files
 .DS_Store
