@@ -1,7 +1,7 @@
 # codryx
 
 <p align="center">
-  <img src="docs/logo.jpeg" alt="Codryx Logo" width="150"/>
+  <img src="docs/logo.png" alt="Codryx Logo" width="150"/>
 </p>
 
 <p align="center">
