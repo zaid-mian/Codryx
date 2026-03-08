@@ -1,6 +1,6 @@
 [project]
 name = "codryx"
-version = "0.1.2"  # increment version
+version = "0.1.3"  # increment version
 description = "Python developer toolkit for code safety and health"
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.10"
