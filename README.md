@@ -1,6 +1,10 @@
 # codryx
 
 <p align="center">
+  <img src="docs/logo.jpeg" alt="Codryx Logo" width="150"/>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status">
   <img src="https://img.shields.io/badge/python-3.7+-blue" alt="Python Version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
